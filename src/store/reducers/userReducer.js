@@ -1,7 +1,7 @@
 import { userStore } from '../../main'
 import { GET_USER_BY_ID, ADD_USER, UPDATE_USER, DELETE_USER} from '../types/userTypes'
 
-export default function usersReducer({users}, action) {
+export default function usersReducer(users= [], action) {
 
     switch (action.type) {
         case GET_USER_BY_ID:
@@ -17,7 +17,7 @@ export default function usersReducer({users}, action) {
         case DELETE_USER:
             return 
         default:
-            return {users}
+            return users
     }
 
 }

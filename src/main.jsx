@@ -2,9 +2,9 @@ import  { compose } from 'redux'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import ReactDOM from 'react-dom/client'
-import usersReducer from './store/reducers/userReducer'
 import App from './App'
 import './index.css'
+import  combineReducers  from './store/reducers'
 
 
 const enhancers = compose(
@@ -12,7 +12,7 @@ const enhancers = compose(
  window.__REDUX_DEVTOOLS_EXTENSION__(),
  );
  
-export const userStore= createStore(usersReducer,{users:[{fName:"Dalia", lName:"Zegaye", age:23, email:"dalia@gmail.com"}]},enhancers)
+export const userStore= createStore(combineReducers,{ },enhancers)
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={userStore}>
     <App />
